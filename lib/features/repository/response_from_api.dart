@@ -5,6 +5,7 @@
 
 class ResponseFromApi {
 
+  // Данные из первой апишки
   final String api1 = '''
   [
     {
@@ -169,6 +170,7 @@ class ResponseFromApi {
     }
   ]
   ''';
+  // Данные из второй апишки
   final String api2 = '''
   {
     "newsLine": [

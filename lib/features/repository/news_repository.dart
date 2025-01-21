@@ -16,6 +16,8 @@ class NewsRepository {
   // Метод для получения новостей с сайта, используй его если сайт работает
   Future<List<News>> fetchNews() async {
     try {
+
+      // Получаем ответы от сайтов с апи
       final responses = await Future.wait([
         _dio.get('https://exams2.masqed.ru/api1'),
         _dio.get('https://exams2.masqed.ru/api2'),
@@ -54,7 +56,7 @@ class NewsRepository {
       final List<News> api1News = api1Parsed.map((e) => News.fromApi1(e)).toList();
       final List<News> api2News = api2Parsed.map((e) => News.fromApi2(e)).toList();
 
-      // Объединяем данные и сортируем
+      // Объединяем данные и сортируем по дате
       final combinedNews = [...api1News, ...api2News];
       combinedNews.sort((a, b) => b.date.compareTo(a.date));
 

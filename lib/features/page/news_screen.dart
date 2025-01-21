@@ -1,3 +1,7 @@
+/*
+Главный экран, отображение всех новостей
+ */
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -28,11 +32,11 @@ class NewsScreenState extends State<NewsScreen> {
       appBar: AppBar(title: const Text('Новости')),
       body: Builder(
         builder: (context) {
-          if (newsProvider.status == 'loading') {
+          if (newsProvider.status == 'loading') { // Если новости еще грузятся, то отображается загрузка
             return const Center(child: CircularProgressIndicator());
-          } else if (newsProvider.status == 'error') {
+          } else if (newsProvider.status == 'error') { // Если ошибка
             return const Center(child: Text('Ошибка в загрузке новостей'));
-          } else {
+          } else { // Если все успешно, то вывод новостей
             return ListView.builder(
               itemCount: newsProvider.news.length,
               itemBuilder: (context, index) {

@@ -1,3 +1,7 @@
+/*
+Карточка отображения одной новости из списка
+ */
+
 import 'package:flutter/material.dart';
 
 import '../model/news_model.dart';
@@ -15,24 +19,23 @@ class NewsCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
+            Row( // Название новости
               children: [
-                if (news.isPopular) const Text('🔥', style: TextStyle(fontSize: 16)),
-                const SizedBox(width: 8),
+                if (news.isPopular) const Text('🔥', style: TextStyle(fontSize: 16)), // Если новость популярна, отображаем огонек
                 Expanded(
-                  child: Text(news.title, style: Theme.of(context).textTheme.titleLarge),
+                  child: Text(news.title, style: Theme.of(context).textTheme.titleLarge), // Отображение названия новости
                 ),
               ],
             ),
             const SizedBox(height: 8),
-            Text(
+            Text( // Описание новости
               news.description,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             const SizedBox(height: 8),
-            Text(
+            Text( // Автор новости
               'By ${news.author}, ${news.source}',
               style: Theme.of(context).textTheme.bodySmall,
             ),
