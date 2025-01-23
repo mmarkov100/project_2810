@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'core/theme.dart';
-import 'features/page/news_screen.dart';
-import 'features/provider/news_provider.dart';
-import 'features/repository/news_repository.dart';
+import 'features/news/page/news_screen.dart';
+import 'features/news/provider/news_provider.dart';
+import 'features/news/repository/news_repository.dart';
 
 void main() async {
   final repository = NewsRepository();
